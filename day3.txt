@@ -311,4 +311,31 @@ vpn = Hash(protect Orig Data) = sha256/sha1/md5
 Howt to configure Site 2 site VPN JP to PH:
 https://
 
+
+@JP
+config t
+no logging console
+no ip domain lookup
+ip route 0.0.0.0 0.0.0.0 200.0.0.20 
+no sh
+int gi1
+ip add 200.0.0.10 255.255.255.0
+int gi3
+ip add 10.10.10.1 255.255.255.0
+no sh
+
+@PH
+config t
+no logging console
+no ip domain lookup
+ip route 0.0.0.0 0.0.0.0 200.0.0.10 
+no sh
+int gi1
+ip add 200.0.0.20 255.255.255.0
+int gi3
+ip add 10.20.20.1 255.255.255.0
+no sh
+
+
+
 TASK6: FUndamentals of Cisco network Security:
